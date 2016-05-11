@@ -1,8 +1,11 @@
-function reusableBarChart() {
+function barChart() {
 
   var width = 500; // default width    
   var height = 500; // default height
+  var padding = 100;
   var barColor = "rgb(250, 50, 50)";
+  var yAxisTitle = "Y-Value";
+
   var x = d3.scale.ordinal()
       .rangeRoundBands([0, width], .1);
   
@@ -38,7 +41,11 @@ function reusableBarChart() {
           .attr("transform", "translate(0," + height + ")")
           .call(xAxis)
         .selectAll("text")
-          .style("text-anchor", "middle");
+          .style("text-anchor", "middle")
+          .append("text")
+            .attr("text-anchor", "end")  
+            .attr("dx", "-.8em")
+            .attr("dy", "-.55em");
            
         svg.append("g")
           .attr("class", "y axis")
@@ -48,25 +55,34 @@ function reusableBarChart() {
           .attr("y", 6)
           .attr("dy", ".71em")
           .style("text-anchor", "end")
-          .text("Value ($)");
+          .text(yAxisTitle);
              
-         svg.selectAll(".bar")
-           .data(d).enter()
-           .append("rect")
-           .attr("width", 1)
-           .attr("class", "bar")
-           .attr("x", function(d) { return x(d.xValue); })
+        var bars = svg.selectAll(".bar").data(d);
+
+        bars.enter().append("rect")
+           .attr("class", "bar");
+          
+        bars.exit().remove();
+
+        bars.attr("x", function(d) { return x(d.xValue); })
            .attr("y", function(d) { return y(d.yValue); })
            .attr("fill", barColor)
+           .attr("width", 1)
            .attr("height", function(d) { return height - y(d.yValue)})
            .transition().duration(1500)
                .attr("width", x.rangeBand()); 
       });
   }
 
-  my.color = function(string) {
+  my.barColor = function(string) {
     if (!arguments.length) return barColor;
     barColor = string;
+    return my;
+  }
+
+  my.yAxisTitle = function(string) {
+    if (!arguments.length) return yAxisTitle;
+    yAxisTitle = string;
     return my;
   }
 
@@ -90,20 +106,6 @@ function reusableBarChart() {
         .scale(y)
         .orient("left")
         .tickSize(10);
-    return my;
-  };
-
-  my.x = function(value) {
-    if (!arguments.length) 
-      return x;
-    x = value;
-    return my;
-  };
-
-  my.y = function(value) {
-    if (!arguments.length) 
-      return y;
-    y = value;
     return my;
   };
 
