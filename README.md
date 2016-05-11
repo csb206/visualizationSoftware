@@ -25,20 +25,20 @@ Use barChart(). function to create graph.
 \# *barChart*()
 > Constructs a bar chart object with the data given
 
-\# *barChart*.**width**(number)
+\# *barChart()*.**width**(number)
 > Sets the current width of the barChart instance to the current value and returns that barChart instance.
 
-\# *barChart*.**height**(number)
+\# *barChart()*.**height**(number)
 > Sets the current height of the barChart instance to the current value and returns that barChart instance.
 
-\# *barChart*.**barColor**(string)
+\# *barChart()*.**barColor**(string)
 > Sets the current color of the barChart instance to the current string ("rbg(x, x, x)") and returns that barChart instance.
 
-\# *barChart*.**graphTitle**(string)
+\# *barChart()*.**graphTitle**(string)
 > Sets the current title of the bar chart to the current string and returns that barChart instance. 
 
-\# *barChart*.**yAxisTitle**(string)
+\# *barChart()*.**yAxisTitle**(string)
 > Sets the current title of the bar charts y axis to the current string and returns that barChart instance. 
 
-\# *barChart*.**data**(data)
+\# *barChart()*.**data**(data)
 > Sets the current data of the barChart instance to the data passed in and returns that barChart instance.
