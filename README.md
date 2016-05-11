@@ -9,9 +9,12 @@ This library will give you the ability to make a bar chart with X and Y data in 
 xData={}
 yData={}
 
-xData.map(function(d, i) { to return x and y values in the data sets. 
+xData.map(function(d, i) { to return x and y values
 
-barChart() is the main function of the graph creation.
+Note: When you iterate through xData and yData, make sure to set each value of x to "xValue" and y to "yValue"
+ 
+
+Use barChart(). function to create graph. 
 
 
 ```
@@ -19,11 +22,7 @@ barChart() is the main function of the graph creation.
 ## API Functions
 
 
-\# *xData*.**map**(function)
-
-> This is not a new function, but this is responsible for the aggregating the data 
-
-\# *barChart*.()
+\# *barChart*()
 > Constructs a bar chart object with the data given
 
 \# *barChart*.**width**(number)
