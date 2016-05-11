@@ -1,5 +1,6 @@
 body {
   font: 10px sans-serif;
+  background-color: ghostwhite;
 }
 
 h1 {
@@ -18,3 +19,6 @@ svg {
   shape-rendering: crispEdges;
 }
 
+.bar:hover {
+  fill: black;
+}

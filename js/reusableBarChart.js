@@ -5,6 +5,7 @@ function barChart() {
   var padding = 100;
   var barColor = "rgb(250, 50, 50)";
   var yAxisTitle = "Y-Value";
+  var graphTitle = "Title";
 
   var x = d3.scale.ordinal()
       .rangeRoundBands([0, width], .1);
@@ -56,6 +57,14 @@ function barChart() {
           .attr("dy", ".71em")
           .style("text-anchor", "end")
           .text(yAxisTitle);
+
+        svg.append("text")
+          .attr("x", (width / 2))             
+          .attr("y", 2 - (margin.top / 2))
+          .attr("text-anchor", "middle")  
+          .style("font-size", "14px") 
+          .style("text-decoration", "underline")  
+          .text(graphTitle);
              
         var bars = svg.selectAll(".bar").data(d);
 
@@ -83,6 +92,12 @@ function barChart() {
   my.yAxisTitle = function(string) {
     if (!arguments.length) return yAxisTitle;
     yAxisTitle = string;
+    return my;
+  }
+
+  my.graphTitle = function(string) {
+    if (!arguments.length) return graphTitle;
+    graphTitle = string;
     return my;
   }
 

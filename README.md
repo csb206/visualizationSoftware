@@ -9,7 +9,7 @@ This library will give you the ability to make a bar chart with X and Y data in 
 xData={}
 yData={}
 
-xData.map function to return x and y values in the data sets. 
+xData.map(function(d, i) { to return x and y values in the data sets. 
 
 barChart() is the main function of the graph creation.
 
@@ -34,6 +34,9 @@ barChart() is the main function of the graph creation.
 
 \# *barChart*.**barColor**(string)
 > Sets the current color of the barChart instance to the current string ("rbg(x, x, x)") and returns that barChart instance.
+
+\# *barChart*.**graphTitle**(string)
+> Sets the current title of the bar chart to the current string and returns that barChart instance. 
 
 \# *barChart*.**yAxisTitle**(string)
 > Sets the current title of the bar charts y axis to the current string and returns that barChart instance. 
