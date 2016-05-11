@@ -1,6 +1,6 @@
-# makeBarChart.js API Reference
+# reusableBarChart.js API Reference
 
-This library will give you the ability to make bar chart with any data in a very straightforward and simple way. 
+This library will give you the ability to make a bar chart with X and Y data in a very straightforward fashion.
 
 ## Usage
 
